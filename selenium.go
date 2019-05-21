@@ -276,6 +276,8 @@ type WebDriver interface {
 
 	// Get navigates the browser to the provided URL.
 	Get(url string) error
+	// GetJson gets json from the provided URL.
+	GetJson(url string) (string, error)
 	// Forward moves forward in history.
 	Forward() error
 	// Back moves backward in history.
