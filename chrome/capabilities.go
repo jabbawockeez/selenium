@@ -14,7 +14,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/tebeka/selenium/internal/zip"
+	"/internal/zip"
 )
 
 // DeprecatedCapabilitiesKey and CapabilitiesKey are the key in the top-level Capabilities map under which

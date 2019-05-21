@@ -17,8 +17,8 @@ import (
 	"regexp"
 
 	"github.com/blang/semver"
-	"github.com/tebeka/selenium/firefox"
-	"github.com/tebeka/selenium/log"
+	"/firefox"
+	"/log"
 )
 
 // Errors returned by Selenium server.
