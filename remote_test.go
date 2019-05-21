@@ -20,10 +20,10 @@ import (
 	"github.com/blang/semver"
 	"github.com/golang/glog"
 	"github.com/google/go-cmp/cmp"
-	"/chrome"
-	"/firefox"
-	"/log"
-	"/sauce"
+	"github.com/jabbawockeez/selenium/chrome"
+	"github.com/jabbawockeez/selenium/firefox"
+	"github.com/jabbawockeez/selenium/log"
+	"github.com/jabbawockeez/selenium/sauce"
 )
 
 var (
