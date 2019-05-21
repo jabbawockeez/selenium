@@ -1462,7 +1462,7 @@ func (wd *remoteWD) GetJson(url string) (result string, err error) {
 	if err != nil {
 		return 
 	}
-	r, err = wd.execute("POST", requestURL, data)
+	r, err := wd.execute("POST", requestURL, data)
     result = trimHtmlTag(string(r))
 	return 
 }
