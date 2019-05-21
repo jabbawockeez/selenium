@@ -14,6 +14,7 @@ import (
 	"net/http"
 	"strings"
 	"time"
+	"regexp"
 
 	"github.com/blang/semver"
 	"github.com/tebeka/selenium/firefox"
@@ -1449,4 +1450,26 @@ func (elem *remoteWE) Screenshot(scroll bool) ([]byte, error) {
 	buf := []byte(data)
 	decoder := base64.NewDecoder(base64.StdEncoding, bytes.NewBuffer(buf))
 	return ioutil.ReadAll(decoder)
+}
+
+
+func (wd *remoteWD) GetJson(url string) (result string, err error) {
+	requestURL := wd.requestURL("/session/%s/url", wd.id)
+	params := map[string]string{
+		"url": url,
+	}
+	data, err := json.Marshal(params)
+	if err != nil {
+		return 
+	}
+	r, err = wd.execute("POST", requestURL, data)
+    result = trimHtmlTag(string(r))
+	return 
+}
+
+func trimHtmlTag(s string) (result string) {
+    const htmlTagTmpl = `<\/?.*?>`
+    result = regexp.MustCompile(htmlTagTmpl).ReplaceAllString(s, "")
+
+    return
 }
